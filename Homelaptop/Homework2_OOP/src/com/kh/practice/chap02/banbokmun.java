@@ -16,8 +16,8 @@ public class banbokmun {
 //		banboks.banbok8();
 //		banboks.banbok9();
 //		banboks.banbok10();
-		banboks.banbok11();
-//		banboks.banbok12();
+//		banboks.banbok11();
+		banboks.banbok12();
 //		banboks.banbok13();
 //		banboks.banbok14();
 	}
@@ -202,17 +202,67 @@ public class banbokmun {
 	public void banbok11() {
 		System.out.println("");
 		System.out.println("■■■■■ 실습문제 11 ■■■■■■");
-		System.out.print("1 이상의 숫자를 입력하세요 : ");
-		int number11 = sc.nextInt();
+		System.out.print("시작 숫자 : ");
+		int number11a = sc.nextInt();
+		System.out.print("공차 : ");
+		int number11b = sc.nextInt();
+
+		for (int i = 0; i < 10; i++) {
+			System.out.print(number11a + " ");
+			number11a += number11b;
+		}
 
 	}
 
 	public void banbok12() {
 		System.out.println("");
 		System.out.println("■■■■■ 실습문제 12 ■■■■■■");
-		System.out.print("1 이상의 숫자를 입력하세요 : ");
-		int number12 = sc.nextInt();
+		System.out.print("연산자 (+, -, *, /, %) : ");
+		String number12a = sc.next();
+		if (number12a.equals("exit")) {
+			System.out.println("프로그램을 종료합니다.");
+		} else {
+			System.out.print("정수1 : ");
+			int number12b = sc.nextInt();
+			System.out.print("정수2 : ");
+			int number12c = sc.nextInt();
 
+			while (number12a.equals("/") && (number12b == 0 || number12c == 0)) {
+				System.out.println("0으로 나눌 수 없습니다. 다시 입력해주세요.");
+				System.out.print("연산자 (+, -, *, /, %) : ");
+				number12a = sc.next();
+				System.out.print("정수1 : ");
+				number12b = sc.nextInt();
+				System.out.print("정수2 : ");
+				number12c = sc.nextInt();
+			}
+
+			int result = 0;
+
+			switch (number12a) {
+
+			case "+":
+				result = number12b + number12c;
+				break;
+			case "-":
+				result = number12b - number12c;
+				break;
+			case "*":
+				result = number12b * number12c;
+				break;
+			case "/":
+				result = number12b / number12c;
+				break;
+			case "%":
+				result = number12b % number12c;
+				break;
+			case "^":
+				System.out.println("없는 연산자입니다. 다시 입력해주세요.");
+				break;
+			}
+
+			System.out.println(result);
+		}
 	}
 
 	public void banbok13() {

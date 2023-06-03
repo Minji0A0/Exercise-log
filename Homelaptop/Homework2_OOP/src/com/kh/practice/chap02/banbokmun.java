@@ -6,20 +6,20 @@ public class banbokmun {
 
 	public static void main(String[] args) {
 		banbokmun banboks = new banbokmun();
-//		banboks.banbok1();
-//		banboks.banbok2();
-//		banboks.banbok3();
-//		banboks.banbok4();
-//		banboks.banbok5();
-//		banboks.banbok6();
-//		banboks.banbok7();
-//		banboks.banbok8();
-//		banboks.banbok9();
-//		banboks.banbok10();
-//		banboks.banbok11();
+		banboks.banbok1();
+		banboks.banbok2();
+		banboks.banbok3();
+		banboks.banbok4();
+		banboks.banbok5();
+		banboks.banbok6();
+		banboks.banbok7();
+		banboks.banbok8();
+		banboks.banbok9();
+		banboks.banbok10();
+		banboks.banbok11();
 		banboks.banbok12();
-//		banboks.banbok13();
-//		banboks.banbok14();
+		banboks.banbok13();
+		banboks.banbok14();
 	}
 
 	public static Scanner sc = new Scanner(System.in);
@@ -268,17 +268,29 @@ public class banbokmun {
 	public void banbok13() {
 		System.out.println("");
 		System.out.println("■■■■■ 실습문제 13 ■■■■■■");
-		System.out.print("1 이상의 숫자를 입력하세요 : ");
+		System.out.print("정수 입력 : ");
 		int number13 = sc.nextInt();
+
+		for (int i = 1; i <= number13; i++) {
+			for (int j = 0; j < i; j++) {
+				System.out.print(" * ");
+			}
+			System.out.println("");
+		}
 
 	}
 
 	public void banbok14() {
 		System.out.println("");
 		System.out.println("■■■■■ 실습문제 14 ■■■■■■");
-		System.out.print("1 이상의 숫자를 입력하세요 : ");
+		System.out.print("정수 입력 : ");
 		int number14 = sc.nextInt();
 
+		for (int i = number14; i > 0; i--) {
+			for (int j = 0; j < i; j++) {
+				System.out.print(" * ");
+			}
+			System.out.println("");
+		}
 	}
-
 }

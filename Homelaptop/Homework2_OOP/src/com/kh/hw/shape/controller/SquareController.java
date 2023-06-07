@@ -6,6 +6,7 @@ public class SquareController {
 	// 멤버 변수
 
 	private Shape s = new Shape();
+	private String color;
 
 	public double calcPerimeter(double height, double width) {
 		double perimeter = 2 * (height + width);

@@ -287,7 +287,7 @@ public class banbokmun {
 		int number14 = sc.nextInt();
 
 		for (int i = number14; i > 0; i--) {
-			for (int j = 0; j < i; j++) {
+			for (int j = i; j >0; j--) {
 				System.out.print(" * ");
 			}
 			System.out.println("");

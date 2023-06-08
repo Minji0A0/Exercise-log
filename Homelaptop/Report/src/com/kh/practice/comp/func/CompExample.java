@@ -64,10 +64,83 @@ public class CompExample {
 
 	}
 
+	public void recursive() {
+		recursive();
+		//5*4*3*2*1
+	}
+	
 	public void practice4() {
 
+		while (true) {
+			System.out.print("문자열 : ");
+			String str = sc.nextLine();
+			System.out.print("문자 : ");
+			char c = sc.nextLine().charAt(0);
+			int count = 0;
+			for (int i = 0; i < str.length(); i++) {
+				if (str.charAt(i) == c) {
+					count++;
+				}
+			}
+			System.out.println("포함된 개수" + count);
+
+			boolean exit = false; // while(true) 문자열 : 을 끝낼수 있도록 true 대입
+			while (true) {
+				System.out.println("더 하시겠습니까? (y/n) : ");
+				String strContinue = sc.nextLine().toLowerCase();
+				if (strContinue.equals("y")) {
+					break;
+				} else if (strContinue.equals("n")) {
+					exit = true; // while(true) 문자열 : 을 끝낼수 있도록 true 대입
+					break;
+				} else {
+					System.out.println("잘못된 답변입니다. 다시 입력해주세요.");
+				}
+			} // while (true) 더 하시겠습니까? (y/n)
+			if (exit) {
+				break;
+			}
+		} // while(ture) 문자열:
+
+	}
+
+	public void practice4_1() {
+
+		String strContinue = "";
+		do {
+			System.out.print("문자열 : ");
+			String str = sc.nextLine();
+			System.out.print("문자 : ");
+			char c = sc.nextLine().charAt(0);
+			int count = 0;
+			for (int i = 0; i < str.length(); i++) {
+				if (str.charAt(i) == c) {
+					count++;
+				}
+			}
+			System.out.println("포함된 개수" + count);
+
+			while (true) {
+				System.out.print("더 하시겠습니까? (y/n) : ");
+				strContinue = sc.nextLine().toLowerCase();
+				if (strContinue.equals("y")) {
+					break;
+				} else if (strContinue.equals("n")) {
+					break;
+				} else {
+					System.out.println("잘못된 답변입니다. 다시 입력해주세요.");
+				}
+			} // while (true) 더 하시겠습니까? (y/n)
+
+		} while (strContinue.equals("y"));// 문자열
+		System.out.println("====== 끝 ======");
+	}
+
+	public void practice4_2() {
+
+// 개인작
 		System.out.print("문자열 : ");
-		String munja4a = sc.next();
+		String munja4a = sc.nextLine();
 		System.out.print("문자 : ");
 		char munja4b = sc.next().charAt(0);
 
@@ -102,7 +175,6 @@ public class CompExample {
 				System.out.println("더 하시겠습니까? (y/n) : ");
 				munja4c = sc.next().charAt(0);
 			}
-
 		}
 	}
 }

@@ -3,7 +3,7 @@ package com.kh.practice.comp.func;
 import java.util.Scanner;
 
 public class CompExample {
-	Scanner sc = new Scanner(System.in);
+	private Scanner sc = new Scanner(System.in);
 
 	public void practice1() {
 

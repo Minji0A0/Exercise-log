@@ -23,5 +23,15 @@ public class BookMenu {
 	public void deleteBook();
 
 	public void ascBook();
+	
+	
+	public String getmain() {
+		return main;
+		
+	public void setmain(String main) {
+		this.main();
+		
+	}
+	}
 
 }

@@ -144,26 +144,54 @@ public class Function {
 		System.out.println(nansunum1);
 		int sum = 0;
 
-			if (nansunum1 < 0) {
-				System.out.println("0이상 입력해주세요.");
-				nansunum1 = random.nextInt(100);
-				System.out.println(nansunum1);
-			} else {
-				for (int i = 1; i <= nansunum1; i++) {
-					sum += i;
-				}
+		if (nansunum1 < 0) {
+			System.out.println("0이상 입력해주세요.");
+			nansunum1 = random.nextInt(100);
+			System.out.println(nansunum1);
+		} else {
+			for (int i = 1; i <= nansunum1; i++) {
+				sum += i;
 			}
+		}
 		System.out.println("1부터 " + nansunum1 + "까지 난수의 합산은 " + sum + " 입니다.");
 	}
 
 	public static void gugudan() {
 		System.out.println("===== 7. 구구단 =====");
+		int dan = 9;
+		int su = 9;
 
+		for (int i = 2; i <= dan; i++) {
+			for (int j = 1; j <= su; j++) {
+				System.out.printf("%d * %d = %2d \n", i, j, i * j);
+			}
+		}
 	}
 
 	public static void dicesuji() {
 		System.out.println("===== 8. 주사위 숫자 알아맞추기 게임 =====");
+		int dicerandom = random.nextInt(6);
+		System.out.println(dicerandom);
 
+		System.out.println("주사위 숫자를 무엇입니까? : ");
+		int dice1 = sc.nextInt();
+
+		int count = 0;
+
+		while (true) {
+			if (dice1 != dicerandom) {
+				System.out.println("틀렸습니다!");
+				System.out.println("주사위 숫자를 무엇입니까? : ");
+				dice1 = sc.nextInt();
+				count++;
+			}
+			else if (dice1 == dicerandom) {
+				System.out.println(dicerandom + "은 정답입니다!");
+				count++;
+				break;
+			}
+		}
+		System.out.println(count + "번만에 정답을 맞추셨습니다.");
 	}
 
 	public static void stop() {

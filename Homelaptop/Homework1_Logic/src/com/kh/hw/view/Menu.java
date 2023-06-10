@@ -61,11 +61,11 @@ public class Menu {
 
 					break;
 				case 6:
-					Function.gugudan();
+					Function.nansu();
 
 					break;
 				case 7:
-					Function.nansu();
+					Function.gugudan();
 
 					break;
 				case 8:

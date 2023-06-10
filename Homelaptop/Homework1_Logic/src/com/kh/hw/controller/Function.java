@@ -1,11 +1,15 @@
 package com.kh.hw.controller;
 
 import java.security.DrbgParameters.NextBytes;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Function {
 
 	private static Scanner sc = new Scanner(System.in);
+	private static Random random = new Random();
+
+	String name;
 
 	public static void kandangyesangi() {
 
@@ -66,7 +70,25 @@ public class Function {
 
 	public static void sinsang() {
 		System.out.println("===== 3. 신상 정보 확인 =====");
-		System.out.print("이름 			: ");
+		System.out.print("이름 : ");
+		String name = sc.next();
+		System.out.print("나이 : ");
+		int age = sc.nextInt();
+		System.out.print("성별 : ");
+		String gender = sc.next();
+		System.out.print("성격 : ");
+		String character = sc.next();
+
+		System.out.println("이름 : " + name);
+		System.out.println("나이 : " + age);
+		System.out.println("성별 : " + gender);
+		System.out.println("성격 : " + character);
+
+	}
+
+	public static void studentinfo() {
+		System.out.println("===== 4. 학생 정보 확인 =====");
+		System.out.print("이름 		: ");
 		String name = sc.next();
 		System.out.print("학년	(숫자만)	: ");
 		int year = sc.nextInt();
@@ -84,28 +106,63 @@ public class Function {
 		} else if (gender.equals("F")) {
 			gender = "여";
 		}
-
 		System.out.printf(" %d학년 %d반 %d번 %s %s학생의 성적은 %.2f 이다.", year, ban, bunho, name, gender, point);
 		System.out.println("");
-	}
-
-	public static void studentinfo() {
 
 	}
 
 	public static void startosuji() {
+		System.out.println("===== 5. 별과 숫자 출력 =====");
+
+		System.out.println("첫번째 정수를 입력해주세요 : ");
+		int starnum1 = sc.nextInt();
+		System.out.println("두번째 정수를 입력해주세요 : ");
+		int starnum2 = sc.nextInt();
+
+		if (starnum1 < starnum2) {
+			for (int i = starnum1; i <= starnum2; i++) {
+				for (int j = 0; j < i; j++) {
+					System.out.print("*");
+				}
+				System.out.println("");
+			}
+		} else if (starnum1 > starnum2) {
+			for (int i = starnum1; i >= starnum2; i--) {
+				for (int j = i; j > 0; j--) {
+					System.out.print("*");
+				}
+				System.out.println("");
+			}
+		}
 
 	}
 
 	public static void nansu() {
+		System.out.println("===== 6. 난수까지의 합계 =====");
 
+		int nansunum1 = random.nextInt(100);
+		System.out.println(nansunum1);
+		int sum = 0;
+
+			if (nansunum1 < 0) {
+				System.out.println("0이상 입력해주세요.");
+				nansunum1 = random.nextInt(100);
+				System.out.println(nansunum1);
+			} else {
+				for (int i = 1; i <= nansunum1; i++) {
+					sum += i;
+				}
+			}
+		System.out.println("1부터 " + nansunum1 + "까지 난수의 합산은 " + sum + " 입니다.");
 	}
 
 	public static void gugudan() {
+		System.out.println("===== 7. 구구단 =====");
 
 	}
 
 	public static void dicesuji() {
+		System.out.println("===== 8. 주사위 숫자 알아맞추기 게임 =====");
 
 	}
 

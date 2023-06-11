@@ -22,12 +22,12 @@ public class banbokmun {
 //		banboks.banbok14();
 //		banboks.banbok15();
 //		banboks.banbok16();
-		banboks.banbok17();
+//		banboks.banbok17();
 //		banboks.banbok18();
 //		banboks.banbok19();
 //		banboks.banbok20();
 //		banboks.banbok21();
-//		banboks.banbok22();
+		banboks.banbok22();
 	}
 
 	public static Scanner sc = new Scanner(System.in);
@@ -388,6 +388,9 @@ public class banbokmun {
 //		* ‘소수’는 n을 1부터 n까지로 나누었을 때 나누어 떨어지는 수가 1과 n뿐인 수를 말한다.
 //		ex) 2, 3, 5, 7, 11 
 
+		System.out.println("");
+		System.out.println("■■■■■ 실습문제 15 ■■■■■■");
+
 		System.out.println("소수로 계산될 숫자를 입력해주세요 : ");
 		int number15a = sc.nextInt();
 
@@ -417,6 +420,9 @@ public class banbokmun {
 //		“잘못 입력하셨습니다.”를 출력하면서 다시 사용자가 값을 입력하도록 하세요.
 //		* ‘소수’는 n을 1부터 n까지로 나누었을 때 나누어 떨어지는 수가 1과 n뿐인 수를 말한다.
 //		ex) 2, 3, 5, 7, 11 …
+
+		System.out.println("");
+		System.out.println("■■■■■ 실습문제 16 ■■■■■■");
 
 		System.out.println("소수로 계산될 숫자를 입력해주세요 : ");
 		int number16a = sc.nextInt();
@@ -449,6 +455,9 @@ public class banbokmun {
 	public void banbok17() {
 //		2부터 사용자가 입력한 수까지의 소수를 모두 출력하고 소수의 개수를 출력하세요.
 //		단, 입력한 수가 2보다 작은 경우 “잘못 입력하셨습니다.”를 출력하세요
+
+		System.out.println("");
+		System.out.println("■■■■■ 실습문제 17 ■■■■■■");
 
 		System.out.print("숫자 : ");
 		int number17a = sc.nextInt();
@@ -491,16 +500,48 @@ public class banbokmun {
 //		2 3 4 6 8 9 10 12 14 15 
 //		count : 2
 
+		System.out.println("");
+		System.out.println("■■■■■ 실습문제 18 ■■■■■■");
+
+		System.out.print("자연수를 하나 입력하세요 : ");
+		int num18a = sc.nextInt();
+		int prime18count = 0;
+
+		for (int i = 1; i <= num18a; i++) {
+			if (i % 2 == 0 || i % 3 == 0) {
+				System.out.print(i + " ");
+				if (i % 2 == 0 && i % 3 == 0) {
+					prime18count++;
+				}
+			}
+		}
+		System.out.println("\ncount : " + prime18count);
 	}
 
 	public void banbok19() {
 //		다음과 같은 실행 예제를 구현하세요.
 //		ex.
 //		정수 입력 : 4
-//		*
-//		**
-//		***
-//		****
+//			*
+//		   **
+//		  ***
+//		 ****
+
+		System.out.println("");
+		System.out.println("■■■■■ 실습문제 19 ■■■■■■");
+
+		System.out.print("정수 입력 : ");
+		int num19a = sc.nextInt();
+
+		for (int i = 1; i <= num19a; i++) {
+			for (int j = 1; j <= num19a - i; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 1; k <= i; k++) {
+				System.out.print("*");
+			}
+			System.out.println("");
+		}
 
 	}
 
@@ -514,6 +555,24 @@ public class banbokmun {
 //		**
 //		*
 
+		System.out.println("");
+		System.out.println("■■■■■ 실습문제 20 ■■■■■■");
+
+		System.out.println("정수 입력 : ");
+		int num20a = sc.nextInt();
+
+		for (int i = 1; i <= num20a; i++) {
+			for (int j = 1; j <= i; j++) {
+				System.out.print("*");
+			}
+			System.out.println("");
+		}
+		for (int k = num20a - 1; k >= 1; k--) {
+			for (int l = 1; l <= k; l++) {
+				System.out.print("*");
+			}
+			System.out.println(" ");
+		}
 	}
 
 	public void banbok21() {
@@ -524,6 +583,21 @@ public class banbokmun {
 //		***
 //		*****
 //		*******
+		System.out.println("");
+		System.out.println("■■■■■ 실습문제 21 ■■■■■■");
+
+		System.out.println("정수 입력 : ");
+		int num21a = sc.nextInt();
+
+		for (int i = 1; i <= num21a; i++) {
+			for (int j = 1; j <= num21a - i; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 1; k <= 2 * i - 1; k++) {
+				System.out.print("*");
+			}
+			System.out.println(" ");
+		}
 
 	}
 
@@ -537,5 +611,22 @@ public class banbokmun {
 //		* *
 //		*****
 
+		System.out.println("");
+		System.out.println("■■■■■ 실습문제 22 ■■■■■■");
+
+		System.out.println("정수 입력 : ");
+		int num22a = sc.nextInt();
+
+		for (int i = 1; i <= num22a; i++) {
+			for (int j = 1; j <= num22a; j++) {
+				if (i == 1 || i == num22a || j == 1 || j == num22a) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+
+			}
+			System.out.println();
+		}
 	}
 }

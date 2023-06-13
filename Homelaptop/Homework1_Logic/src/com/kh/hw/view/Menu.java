@@ -41,35 +41,35 @@ public class Menu {
 
 				switch (this.menunum) {
 				case 1:
-					Function.kandangyesangi();
+					Function.calculator();
 
 					break;
 				case 2:
-					Function.hapgye();
+					Function.totalCalculator();
 
 					break;
 				case 3:
-					Function.sinsang();
+					Function.printProfile();
 
 					break;
 				case 4:
-					Function.studentinfo();
+					Function.printScore();
 
 					break;
 				case 5:
-					Function.startosuji();
+					Function.printStarNumber();
 
 					break;
 				case 6:
-					Function.nansu();
+					Function.sumRandom();
 
 					break;
 				case 7:
-					Function.gugudan();
+					Function.exceptGugu();
 
 					break;
 				case 8:
-					Function.dicesuji();
+					Function.diceGame();
 
 					break;
 					

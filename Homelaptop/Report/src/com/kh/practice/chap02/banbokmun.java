@@ -6,27 +6,27 @@ public class banbokmun {
 
 	public static void main(String[] args) {
 		banbokmun banboks = new banbokmun();
-//		banboks.banbok1();
-//		banboks.banbok2();
-//		banboks.banbok3();
-//		banboks.banbok4();
-//		banboks.banbok5();
-//		banboks.banbok6();
-//		banboks.banbok7();
-//		banboks.banbok8();
-//		banboks.banbok9();
-//		banboks.banbok10();
-//		banboks.banbok11();
-//		banboks.banbok12();
-//		banboks.banbok13();
-//		banboks.banbok14();
-//		banboks.banbok15();
-//		banboks.banbok16();
-//		banboks.banbok17();
-//		banboks.banbok18();
-//		banboks.banbok19();
-//		banboks.banbok20();
-//		banboks.banbok21();
+		banboks.banbok1();
+		banboks.banbok2();
+		banboks.banbok3();
+		banboks.banbok4();
+		banboks.banbok5();
+		banboks.banbok6();
+		banboks.banbok7();
+		banboks.banbok8();
+		banboks.banbok9();
+		banboks.banbok10();
+		banboks.banbok11();
+		banboks.banbok12();
+		banboks.banbok13();
+		banboks.banbok14();
+		banboks.banbok15();
+		banboks.banbok16();
+		banboks.banbok17();
+		banboks.banbok18();
+		banboks.banbok19();
+		banboks.banbok20();
+		banboks.banbok21();
 		banboks.banbok22();
 	}
 

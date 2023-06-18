@@ -314,62 +314,47 @@ public class ArrayPractice {
 
 		System.out.println("■■■배열 실습 13■■■");
 
-		int[] arr13 = new int[10];
+		int[] arr13a = new int[10];
 		Random random = new Random();
-		Set<Integer> num13b = new HashSet<>();
 
-		for (int i = 0; i < arr13.length; i++) {
-			int num13;
-			do {
-				num13 = random.nextInt(10) + 1;
-			} while (num13b.contains(num13));
-
-			arr13[i] = num13;
-			num13b.add(num13);
+		for (int i = 0; i < arr13a.length; i++) {
+			arr13a[i] = random.nextInt(10) + 1;
+			for (int j = 0; j < i; j++) {
+				if (arr13a[i] == arr13a[j]) {
+					i--;
+				}
+			}
 		}
-
-		for (int num13 : arr13) {
-			System.out.print(num13 + " ");
+		for (int i = 0; i < arr13a.length; i++) {
+			System.out.print(arr13a[i] + " ");
 		}
-
-		System.out.println(" ");
 	}
 
 	public void practice14() {
 //	로또 번호 자동 생성기 프로그램을 작성하는데 중복 값 없이 오름차순으로 정렬하여 출력하세요.
 //	ex.
 //	3 4 15 17 28 40
+
+		// 배열을 우선 셋에 입력한뒤에 셋에 있는것을 꺼내서 버블로 정렬하기로 코드 변경해보기
+
 		System.out.println("■■■배열 실습 14■■■");
 		System.out.println("●●●●● 로또 번호 자동 생성기 ●●●●●");
 
-		int[] arr14 = new int[6];
+		int[] arr14a = new int[6];
 		Random random = new Random();
-		Set<Integer> lottonum14a = new HashSet<>(); // 중복제거
 
-		for (int i = 0; i < arr14.length; i++) {
-			int lottonum14b;
-			do {
-				arr14[i] = random.nextInt(45) + 1;
-			} while (contains(arr14, i, lottonum14a));
-
-			lottonum14b = arr14[i];
-		}
-		Arrays.sort(arr14);
-		for (int lottonum14b : arr14) {
-			lottonum14a.add(lottonum14b);
-			System.out.print(lottonum14b + " ");
-		}
-
-		System.out.println(" ");
-	}
-
-	private boolean contains(int[] arr14, int lottonum14a, Set<Integer> set) {
-		for (int i = 0; i < lottonum14a; i++) {
-			if (arr14[i] == arr14[lottonum14a] || set.contains(arr14[lottonum14a])) {
-				return true;
+		for (int i = 0; i < arr14a.length; i++) {
+			arr14a[i] = random.nextInt(45) + 1;
+			for (int j = 0; j < i; j++) {
+				if (arr14a[i] == arr14a[j]) {
+					i--;
+				}
 			}
 		}
-		return false;
+		Arrays.sort(arr14a);
+		for (int i = 0; i < arr14a.length; i++) {
+			System.out.print(arr14a[i] + " ");
+		}
 	}
 
 	public void practice15() {
@@ -380,20 +365,31 @@ public class ArrayPractice {
 //	문자열에 있는 문자 : a, p, l, i, c, t, o, n
 //	문자 개수 : 8
 		System.out.println("■■■배열 실습 15■■■");
-		System.out.print("문자열 : ");
-		String munja15a = sc.next();
-		Set<Character> char15a = new HashSet<Character>();
 
-		for (int i = 0; i < munja15a.length(); i++) {
-			char15a.add(munja15a.charAt(i));
+		System.out.print("문자열  : ");
+		String munja15 = sc.next();
+
+		char[] arr15 = new char[munja15.length()];
+		int count = 0;
+
+		System.out.print("문자열에 있는 숫자 : ");
+		for (int i = 0; i < munja15.length(); i++) {
+			arr15[i] = munja15.charAt(i);
+			if (i == arr15.length - 1) {
+				System.out.print(arr15[i]);
+			} else {
+				System.out.print(arr15[i] + ", ");
+			}
+			count++;
+			for (int j = 0; j < i; j++) {
+				if (arr15[i] == arr15[j]) {
+					count--;
+				}
+			}
 		}
-		System.out.print("문자열에 있는 문자 : ");
-		for (char ch : char15a) {
-			System.out.print(ch + ", ");
-		}
-		System.out.println("\n문자 개수 : " + char15a.size());
+		System.out.println(" ");
+		System.out.print("문자 개수 : " + count);
 	}
-
 
 	public void practice16() {
 //	사용자가 입력한 배열의 길이만큼의 문자열 배열을 선언 및 할당하고
@@ -418,6 +414,53 @@ public class ArrayPractice {
 
 		System.out.println("■■■배열 실습 16■■■");
 
-	}
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int num16a = sc.nextInt();
+		String[] arr16 = new String[num16a];
 
+		for (int i = 0; i < num16a; i++) {
+			System.out.println((i + 1) + "번째 문자열 : ");
+			arr16[i] = sc.nextLine();
+		}
+
+		System.out.println("더 값을 입력하시겠습니다?(Y/N) : ");
+		char munja16b = sc.next().charAt(0);
+		if (munja16b == 'Y' || munja16b == 'y') {
+			System.out.println("더 입력하고 싶은 개수 : ");
+			int num16b = sc.nextInt();
+			for (int i = 0; i < num16b; i++) {
+
+			}
+		}
+	}
 }
+
+//		System.out.print("배열의 크기를 입력하세요 : ");
+//		int munja16a = sc.nextInt();
+//		sc.nextLine();
+//
+//		String[] arr16a = new String[munja16a];
+//
+//		for (int i = 0; i < munja16a; i++) {
+//			System.out.print((i + 1) + "번째 문자열 : ");
+//			arr16a[i] = sc.nextLine();
+//		}
+//
+//		char munja16b = 'y';
+//
+//		System.out.println("더 값을 입력하시겠습니까?(Y/N) : ");
+//		munja16b = sc.next().charAt(0);
+//
+//		if (munja16b == 'y') {
+//			System.out.println("더 입력하고 싶은 개수 : ");
+//			int munja16c = sc.nextInt();
+//
+//			String[] arr16b = new String[munja16a + munja16c];
+//
+//			for (int i = 0; i < munja16a + munja16c; i++) {
+//				arr16b[i] = sc.nextLine();
+//			}
+//		}
+//
+//	}
+//}

@@ -417,32 +417,32 @@ public class ArrayPractice {
 
 		System.out.print("배열의 크기를 입력하세요 : ");
 		int num16a = sc.nextInt();
-		ArrayList<String> arr16 = new ArrayList<String>();
+
+		ArrayList<String> arry16 = new ArrayList<String>();
 
 		for (int i = 0; i < num16a; i++) {
 			System.out.print((i + 1) + "번째 문자열 : ");
 			String munja16a = sc.next();
-			arr16.add(munja16a);
+			arry16.add(munja16a);
 		}
 		char munja16b;
-		
 		do {
-			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+			System.out.print("더 값을 입력하시겠습니까?(Y/N)");
 			munja16b = sc.next().charAt(0);
 			if (Character.toUpperCase(munja16b) == 'Y') {
-				System.out.println("더 값을 입력하고 싶은 개수 : ");
+				System.out.print("더 입력 하고 싶은 개수 : ");
 				int num16b = sc.nextInt();
-				if (munja16b == 'Y' || munja16b == 'y') {
-					for (int i = 0; i < num16b; i++) {
-						System.out.print(num16a + (i + 1) + "번째 문자열 : ");
-						String munja16a = sc.next();
-						arr16.add(munja16a);
-					}
-					num16a += num16b;
+				for (int i = 0; i < num16b; i++) {
+					System.out.print((num16a + i + 1) + "번째 문자열 : ");
+					String munja16c = sc.next();
+					arry16.add(munja16c);
 				}
+				num16a += num16b;
 			}
+
 		} while (Character.toUpperCase(munja16b) == 'Y');
 		if(Character.toUpperCase(munja16b)=='N') {
-			System.out.println(arr16);}
+			System.out.print(arry16);
+		}
 	}
 }

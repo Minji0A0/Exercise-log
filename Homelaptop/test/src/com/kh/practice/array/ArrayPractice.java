@@ -1,6 +1,7 @@
 package com.kh.practice.array;
 
 import java.awt.Container;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
@@ -416,51 +417,32 @@ public class ArrayPractice {
 
 		System.out.print("배열의 크기를 입력하세요 : ");
 		int num16a = sc.nextInt();
-		String[] arr16 = new String[num16a];
+		ArrayList<String> arr16 = new ArrayList<String>();
 
 		for (int i = 0; i < num16a; i++) {
-			System.out.println((i + 1) + "번째 문자열 : ");
-			arr16[i] = sc.nextLine();
+			System.out.print((i + 1) + "번째 문자열 : ");
+			String munja16a = sc.next();
+			arr16.add(munja16a);
 		}
-
-		System.out.println("더 값을 입력하시겠습니다?(Y/N) : ");
-		char munja16b = sc.next().charAt(0);
-		if (munja16b == 'Y' || munja16b == 'y') {
-			System.out.println("더 입력하고 싶은 개수 : ");
-			int num16b = sc.nextInt();
-			for (int i = 0; i < num16b; i++) {
-
+		char munja16b;
+		
+		do {
+			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+			munja16b = sc.next().charAt(0);
+			if (Character.toUpperCase(munja16b) == 'Y') {
+				System.out.println("더 값을 입력하고 싶은 개수 : ");
+				int num16b = sc.nextInt();
+				if (munja16b == 'Y' || munja16b == 'y') {
+					for (int i = 0; i < num16b; i++) {
+						System.out.print(num16a + (i + 1) + "번째 문자열 : ");
+						String munja16a = sc.next();
+						arr16.add(munja16a);
+					}
+					num16a += num16b;
+				}
 			}
-		}
+		} while (Character.toUpperCase(munja16b) == 'Y');
+		if(Character.toUpperCase(munja16b)=='N') {
+			System.out.println(arr16);}
 	}
 }
-
-//		System.out.print("배열의 크기를 입력하세요 : ");
-//		int munja16a = sc.nextInt();
-//		sc.nextLine();
-//
-//		String[] arr16a = new String[munja16a];
-//
-//		for (int i = 0; i < munja16a; i++) {
-//			System.out.print((i + 1) + "번째 문자열 : ");
-//			arr16a[i] = sc.nextLine();
-//		}
-//
-//		char munja16b = 'y';
-//
-//		System.out.println("더 값을 입력하시겠습니까?(Y/N) : ");
-//		munja16b = sc.next().charAt(0);
-//
-//		if (munja16b == 'y') {
-//			System.out.println("더 입력하고 싶은 개수 : ");
-//			int munja16c = sc.nextInt();
-//
-//			String[] arr16b = new String[munja16a + munja16c];
-//
-//			for (int i = 0; i < munja16a + munja16c; i++) {
-//				arr16b[i] = sc.nextLine();
-//			}
-//		}
-//
-//	}
-//}

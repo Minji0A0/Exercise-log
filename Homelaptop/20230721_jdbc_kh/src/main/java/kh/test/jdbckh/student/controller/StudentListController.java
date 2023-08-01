@@ -21,7 +21,8 @@ public class StudentListController extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("/student/list doGet() 진입 했습니당");
+		System.out.println("/student/list doGet() StudentList가 진입 했습니다");
+		
 		StudentDao dao = new StudentDao();
 		List<StudentVo> result = dao.selectListStudent();
 		request.setAttribute("studentList", result);

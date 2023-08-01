@@ -24,6 +24,7 @@ public class StudentGetController extends HttpServlet {
 		
 		StudentDao dao = new StudentDao();
 		StudentVo vo = dao.selectOneStudent(studentNo);
+		request.setAttribute("svo", vo);
 		request.getRequestDispatcher("/WEB-INF/view/student/get.jsp").forward(request, response);
 	}
 

@@ -16,10 +16,9 @@ import kh.test.jdbckh.student.model.vo.StudentVo;
 public class StudentDao {
 	
 	public StudentVo selectOneStudent(String studentNo) {
-		System.out.println("DAO selectOneStudent() arg:" + studentNo);
-		
+		System.out.println("DAO selectOneStudent() arg:" +studentNo);
 		StudentVo result = null;
-		String query = "selet * from tb_student where student_no = " + studentNo;
+		String query = "select * from tb_student s join tb_department d on(s.department_no=d.department_no) where student_no=?";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -27,18 +26,42 @@ public class StudentDao {
 		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:8090:xe", "kh","kh");
-			if(conn==null) {
-				System.out.println("연결실패");
-			}else {
-				System.out.println("연결 성공");
+//			:8090은 HTTP , :1521은 PROCESS
+//			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:8090:xe", "kh","kh");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe","kh","kh");
+//			if(conn==null) {
+//				System.out.println("연결실패");
+//			}else {
+//				System.out.println("연결 성공");
+//			}
+			
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, studentNo);
+			rset = pstmt.executeQuery();
+			if(rset.next()) {
+				result = new StudentVo();
+				result.setAbsenceYn(rset.getString("Absence_Yn"));
+				result.setCoachProfessorNo(rset.getString("Coach_Professor_No"));
+				result.setDepartmentNo(rset.getString("Department_No"));
+				result.setDepartmentName(rset.getString("Department_Name"));
+				result.setEntranceDate(rset.getDate("Entrance_Date"));
+				result.setStudentAddress(rset.getString("Student_Address"));
+				result.setStudentName(rset.getString("Student_Name"));
+				result.setStudentNo(rset.getString("Student_No"));
+				result.setStudentSsn(rset.getString("Student_Ssn"));
 			}
 		}catch (Exception e) {
-			
+			e.printStackTrace();
 		}finally {
-
+			try {
+				if(rset!=null) rset.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
 		}
-		
+		System.out.println(result);
 		return result;
  	}
 	
@@ -47,7 +70,6 @@ public class StudentDao {
 		Connection conn = null;
 		Statement stmt = null;
 		PreparedStatement pstmt = null;
-		
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe","kh","kh");

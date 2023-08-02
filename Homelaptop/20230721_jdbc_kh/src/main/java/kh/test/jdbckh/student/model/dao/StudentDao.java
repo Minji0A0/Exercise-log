@@ -18,7 +18,9 @@ public class StudentDao {
 	public StudentVo selectOneStudent(String studentNo) {
 		System.out.println("DAO selectOneStudent() arg:" +studentNo);
 		StudentVo result = null;
-		String query = "select * from tb_student s join tb_department d on(s.department_no=d.department_no) where student_no=?";
+		String query = "select s.*\r\n"
+				+ ",(select department_name from tb_department where department_no=s.department_no) department_name\r\n"
+				+ "from tb_student s where student_no= ?";
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -66,10 +68,12 @@ public class StudentDao {
  	}
 	
 	public List<StudentVo> selectListStudent() {
+		String query = "select * from tb_student";
 		List<StudentVo> result = null;
 		Connection conn = null;
 		Statement stmt = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe","kh","kh");
@@ -79,9 +83,8 @@ public class StudentDao {
 				System.out.println("DB연결 실패");
 			}
 //			stmt = conn.createStatement();
-			String query = "select * from tb_student";
 			pstmt = conn.prepareStatement(query);
-			ResultSet rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();
 			result = new ArrayList<StudentVo>();
 			
 			while(rs.next() == true) {
@@ -105,8 +108,57 @@ public class StudentDao {
 			e.printStackTrace();
 		}finally {
 			try {
+				if(rs!=null) {rs.close();}
 				if(pstmt!=null) {pstmt.close();}
-				if(stmt!=null) {stmt.close();}
+				if(conn!=null) {conn.close();}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println(result);
+		return result;
+		
+	}
+	
+	public List<StudentVo> selectListStudent(String searchWord) {
+		String query = "select * from tb_student where student_name like ? or student_address like ?";
+		List<StudentVo> result = null;
+		Connection conn = null;
+		Statement stmt = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:xe","kh","kh");
+			pstmt = conn.prepareStatement(query);
+			searchWord = "%" + searchWord + "%" ;
+			pstmt.setString(1,searchWord);
+			pstmt.setString(2,searchWord);
+			rs = pstmt.executeQuery();
+			result = new ArrayList<StudentVo>();
+			
+			while(rs.next() == true) {
+				StudentVo vo = new StudentVo();
+				vo.setStudentNo(rs.getString("student_no"));
+				vo.setDepartmentNo(rs.getString("department_no"));
+				vo.setStudentName(rs.getString("student_name"));
+				vo.setStudentSsn(rs.getString("student_ssn"));
+				vo.setStudentAddress(rs.getString("student_address"));
+				vo.setEntranceDate(rs.getDate("entrance_date"));
+				vo.setAbsenceYn(rs.getString("absence_yn"));
+				vo.setCoachProfessorNo(rs.getString("coach_professor_no"));
+				
+				result.add(vo);
+			}
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null) {rs.close();}
+				if(pstmt!=null) {pstmt.close();}
 				if(conn!=null) {conn.close();}
 			} catch (SQLException e) {
 				e.printStackTrace();

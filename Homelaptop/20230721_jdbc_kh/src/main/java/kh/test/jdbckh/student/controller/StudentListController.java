@@ -22,9 +22,14 @@ public class StudentListController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("/student/list doGet() StudentList가 진입 했습니다");
-		
+		String searchWord = request.getParameter("searchWord");
 		StudentDao dao = new StudentDao();
-		List<StudentVo> result = dao.selectListStudent();
+		List<StudentVo> result =null;
+		if(searchWord !=null) {
+			result = dao.selectListStudent(searchWord);
+		}else {
+			result = dao.selectListStudent();
+		}
 		request.setAttribute("studentList", result);
 		request.getRequestDispatcher("/WEB-INF/view/student/list.jsp").forward(request, response);
 	}

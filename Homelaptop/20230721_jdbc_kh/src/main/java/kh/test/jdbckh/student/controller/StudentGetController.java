@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kh.test.jdbckh.student.model.dao.StudentDao;
+import kh.test.jdbckh.student.model.service.StudentService;
 import kh.test.jdbckh.student.model.vo.StudentVo;
 
 @WebServlet("/student/get")
@@ -22,8 +23,8 @@ public class StudentGetController extends HttpServlet {
 		String studentNo = request.getParameter("sno");
 		System.out.println(studentNo);
 		
-		StudentDao dao = new StudentDao();
-		StudentVo vo = dao.selectOneStudent(studentNo);
+		StudentService service = new StudentService();
+		StudentVo vo = service.selectOneStudent(studentNo);
 		request.setAttribute("svo", vo);
 		request.getRequestDispatcher("/WEB-INF/view/student/get.jsp").forward(request, response);
 	}

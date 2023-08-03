@@ -1,4 +1,4 @@
-package kh.test.jdbckh.common;
+package kh.test.jdbckh.common.jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

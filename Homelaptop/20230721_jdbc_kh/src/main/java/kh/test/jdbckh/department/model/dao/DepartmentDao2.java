@@ -5,13 +5,13 @@ import java.util.List;
 
 import kh.test.jdbckh.department.model.dto.DepartmentDto;
 
-public class DepartmentDao {
-	
-	public List<DepartmentDto> selectList(Connection conn){
+public class DepartmentDao2 {
+
+	public List<DepartmentDto> SelectList(Connection conn){
 		List<DepartmentDto> result = null;
 		return result;
 	}
-	public DepartmentDto selectOne(Connection conn, String departmentNo) {
+	public DepartmentDto SelectOne(Connection conn, String departmentNo){
 		DepartmentDto result = null;
 		return result;
 	}
@@ -23,17 +23,18 @@ public class DepartmentDao {
 		int result = 0;
 		return result;
 	}
-	public int delete(Connection conn, String departmentNo) {
+	public int delete (Connection conn, String departmentNo) {
 		int result = 0;
 		return result;
 	}
-	
+
 	public int getTotalCount(String searchWord) {
 		int result = 0;
-		return result ; 
+		return result;
 	}
 	public List<DepartmentDto> selectList(Connection conn, int currentPage, int pageSize, String searchWord){
 		List<DepartmentDto> result = null;
 		return result;
 	}
+	
 }
